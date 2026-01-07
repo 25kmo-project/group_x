@@ -1,0 +1,2 @@
+SQL_SERVER="mysql://netuser:netpass@127.0.0.1:3306/bank_db"
+MY_TOKEN=RAf6OUluNGmHPxUHb9fyO+KHqE3U6enB6lPszO7S/4iJA4589GxhJQtYvAwZL3DecMp9eTPDFkKkiAt8ouxByA==
