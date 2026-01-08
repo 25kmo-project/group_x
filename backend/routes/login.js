@@ -10,7 +10,7 @@ router.post('/', function(request, response){
         const password=request.body.password;
         student.check_password(username, function(err, result){
             if(err){
-                response.send(err);
+                response.json(err.errno);
             }
             else {
                 if(result.length > 0){
