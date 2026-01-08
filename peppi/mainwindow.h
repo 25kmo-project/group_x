@@ -9,6 +9,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include "environment.h"
+#include "studentinfo.h"
 
 
 QT_BEGIN_NAMESPACE

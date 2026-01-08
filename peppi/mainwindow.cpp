@@ -40,10 +40,18 @@ void MainWindow::loginAction()
         QJsonObject jsonObject=jsonDoc.object();
         if(jsonObject.contains("token")){
             QString token=jsonObject["token"].toString();
-            qDebug()<<token;
+            QByteArray tokenBytes = token.toUtf8();
+            StudentInfo *objStudentInfo=new StudentInfo(this);
+            objStudentInfo->setToken(tokenBytes);
+            objStudentInfo->setUsername(ui->textUsername->text());
+            objStudentInfo->show();
         }
         else {
             ui->labelInfo->setText("Tunnus ja salasana eivät täsmää");
+            ui->textUsername->clear();
+            ui->textPassword->clear();
+            ui->textUsername->setFocus();
         }
     }
+    reply->deleteLater();
 }

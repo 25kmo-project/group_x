@@ -12,6 +12,8 @@ qt_add_executable(peppi
     mainwindow.h
     mainwindow.ui
     environment.h environment.cpp
+    studentinfo.h studentinfo.cpp studentinfo.ui
+    mydata.h mydata.cpp mydata.ui
 )
 
 target_link_libraries(peppi
