@@ -16,13 +16,20 @@ router.post('/', function(request, response){
                 if(result.length > 0){
                     bcrypt.compare(password, result[0].password, function(err, compareResult){
                         const token=generateAccessToken(username);
-                        response.setHeader('Content-Type', 'application/json'); 
-                        response.json({
-                            success: true,
-                            message: "Login OK",
-                            username: username,
-                            token: token
-                        });
+                        if(compareResult){
+                            response.setHeader('Content-Type', 'application/json'); 
+                            response.json({
+                                success: true,
+                                message: "Login OK",
+                                username: username,
+                                token: token
+                            });
+                        }
+                        else {
+                            console.log("Väärä salasana");
+                            response.json({"message":"tunnus ja salasana eivät täsmää"});       
+                        }
+
                     })
                 }
                 else {
