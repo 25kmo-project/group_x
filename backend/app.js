@@ -19,11 +19,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-app.use('/grade', gradeRouter);
+
 
 //suojatut reitit
 app.use(authenticateToken);
 app.use('/student', studentRouter);
+app.use('/grade', gradeRouter);
 
 
 function authenticateToken(req, res, next) {
