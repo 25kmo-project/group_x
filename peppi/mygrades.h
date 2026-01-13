@@ -2,6 +2,10 @@
 #define MYGRADES_H
 
 #include <QDialog>
+#include "grades.h"
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 
 namespace Ui {
 class MyGrades;
