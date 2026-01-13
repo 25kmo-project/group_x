@@ -26,6 +26,7 @@ router.get('/:username',function(request, response){
 });
 
 router.post('/',function(request,response){
+    console.log(request.body);
     student.add(request.body, function(err,result){
         if(err){
             response.send(err);
@@ -42,8 +43,8 @@ router.put('/:username',function(request,response){
             response.send(err);
         }
         else{
-            console.log(result.affectedRows);
-            response.json(result);
+            console.log(result);
+            response.json(result.affectedRows);
         }
     })
 });
