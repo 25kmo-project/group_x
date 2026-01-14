@@ -73,7 +73,7 @@ jobs:
           - Automaattisesti luotu release release-branchista
 
           ---
-        Luotu automaattisesti GitHub Actionsilla
+          Luotu automaattisesti GitHub Actionsilla
         files: |
           peppi/output/PeppiSetup.exe
         draft: false
