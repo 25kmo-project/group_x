@@ -14,9 +14,9 @@ router.post('/', function(request, response){
             }
             else {
                 if(result.length > 0){
-                    bcrypt.compare(password, result[0].password, function(err, compareResult){
-                        const token=generateAccessToken(username);
+                    bcrypt.compare(password, result[0].password, function(err, compareResult){                     
                         if(compareResult){
+                            const token=generateAccessToken(username, result[0].role);
                             response.setHeader('Content-Type', 'application/json'); 
                             response.json({
                                 success: true,
@@ -45,8 +45,8 @@ router.post('/', function(request, response){
     }
 });
 
-function generateAccessToken(username) {
-  return jwt.sign({ username }, process.env.MY_TOKEN, { expiresIn: '1800s' });
+function generateAccessToken(username, role) {
+  return jwt.sign({ username, role }, process.env.MY_TOKEN, { expiresIn: '1800s' });
 }
 
 module.exports=router;
