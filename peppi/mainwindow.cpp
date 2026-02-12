@@ -42,6 +42,7 @@ void MainWindow::loginAction()
             QString token=jsonObject["token"].toString();
             QByteArray tokenBytes = token.toUtf8();
             StudentInfo *objStudentInfo=new StudentInfo(this);
+            objStudentInfo->setAttribute(Qt::WA_DeleteOnClose); // Tuhoaa objektin kun ikkuna suljetaan
             objStudentInfo->setToken(tokenBytes);
             objStudentInfo->setUsername(ui->textUsername->text());
             objStudentInfo->show();
