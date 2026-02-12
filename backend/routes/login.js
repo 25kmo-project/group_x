@@ -15,8 +15,8 @@ router.post('/', function(request, response){
             else {
                 if(result.length > 0){
                     bcrypt.compare(password, result[0].password, function(err, compareResult){
-                        const token=generateAccessToken(username);
                         if(compareResult){
+                            const token=generateAccessToken(username);
                             response.setHeader('Content-Type', 'application/json'); 
                             response.json({
                                 success: true,
