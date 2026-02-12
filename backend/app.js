@@ -19,11 +19,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-
-
 //suojatut reitit
 app.use(authenticateToken);
 app.use('/student', studentRouter);
+
 app.use('/grade', gradeRouter);
 
 

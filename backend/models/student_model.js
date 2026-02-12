@@ -10,7 +10,7 @@ const student={
     },
     add:function(student,callback){
         bcrypt.hash(student.password,10,function(err, hashedPassword){
-            return db.query("INSERT INTO student VALUES(?,?,?,?,?,?)",[student.username, student.fname, student.lname, student.streetaddress, student.email, hashedPassword],callback)
+            return db.query("INSERT INTO student VALUES(?,?,?,?,?,?,?)",[student.username, student.fname, student.lname, student.streetaddress, student.email, hashedPassword, student.role],callback)
         });
     },
     update:function(student,username,callback){
@@ -22,7 +22,7 @@ const student={
         return db.query("DELETE FROM student WHERE username=?",[username],callback);
     },
     check_password:function(username, callback){
-        return db.query("SELECT password FROM student WHERE username=?",[username],callback);
+        return db.query("SELECT password, role FROM student WHERE username=?",[username],callback);
     }
 }
 

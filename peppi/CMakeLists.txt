@@ -27,6 +27,10 @@ target_link_libraries(peppi
 
 include(GNUInstallDirs)
 
+target_compile_definitions(peppi PRIVATE
+  $<$<CONFIG:Release>:QT_NO_DEBUG_OUTPUT>
+)
+
 install(TARGETS peppi
     BUNDLE  DESTINATION .
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

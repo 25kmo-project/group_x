@@ -1,0 +1,28 @@
+create DATABASE bank_db;
+use bank_db;
+create table student(
+username CHAR(8) PRIMARY KEY,
+fname VARCHAR(100),
+lname VARCHAR(100),
+streetaddress VARCHAR(100),
+email VARCHAR(100),
+password VARCHAR(100)
+);
+
+CREATE TABLE course(
+course_name VARCHAR(40),  
+gredit_points INT, 
+idcourse CHAR(6) primary key);
+
+CREATE TABLE grade(
+id INT PRIMARY KEY AUTO_INCREMENT,
+idcourse CHAR(6),
+grade INT,
+grade_date DATE,
+username CHAR(8),
+FOREIGN KEY (idcourse) REFERENCES course(idcourse) ON DELETE RESTRICT ON UPDATE CASCADE,
+FOREIGN KEY (username) REFERENCES student(username) ON DELETE RESTRICT ON UPDATE CASCADE);
+
+INSERT INTO course VALUES('Olio ohjelmointi',5,'ICT01');
+INSERT INTO course VALUES('Tietokannat',5,'ICT02');
+INSERT INTO course VALUES('Java ohjelmointi',5,'ICT03');
